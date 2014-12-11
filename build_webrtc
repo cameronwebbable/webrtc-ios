@@ -1,8 +1,12 @@
 #!/bin/bash
 function fetch() {
 echo "-- fetching webrtc"
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+
 gclient config http://webrtc.googlecode.com/svn/trunk/
 gclient sync
+
+export PATH=./depot_tools:$PATH
 
 echo "-- webrtc has been sucessfully fetched"
 
